@@ -1,5 +1,6 @@
-🏥 Physics-Informed AI for Low-Dose CT Image Enhancement
-📌 Overview
+# Physics-Informed AI for Low-Dose CT Image Enhancement
+
+## Overview
 
 Computed Tomography (CT) is widely used in medical imaging, but reducing radiation dose—critical for patient safety—often results in noisy and low-quality images.
 
