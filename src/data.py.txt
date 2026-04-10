@@ -1,0 +1,5 @@
+import numpy as np
+
+def add_gaussian_noise(sinogram, std=0.05):
+    noise = np.random.normal(0, std, sinogram.shape)
+    return sinogram + noise

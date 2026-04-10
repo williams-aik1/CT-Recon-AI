@@ -1,0 +1,15 @@
+from tensorflow.keras import layers, models
+
+def build_residual_model():
+    inputs = layers.Input(shape=(128, 128, 1))
+
+    x = layers.Conv2D(32, (3,3), activation='relu', padding='same')(inputs)
+    x = layers.Conv2D(32, (3,3), activation='relu', padding='same')(x)
+    x = layers.Conv2D(1, (3,3), padding='same')(x)
+
+    outputs = layers.Add()([inputs, x])
+
+    model = models.Model(inputs, outputs)
+    model.compile(optimizer='adam', loss='mse')
+
+    return model

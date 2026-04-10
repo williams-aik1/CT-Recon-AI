@@ -1,0 +1,19 @@
+import streamlit as st
+import numpy as np
+from PIL import Image
+from src.model import build_residual_model
+
+st.title("CT AI Enhancement Tool")
+
+model = build_residual_model()
+
+uploaded_file = st.file_uploader("Upload Image", type=["png", "jpg"])
+
+if uploaded_file:
+    image = np.array(Image.open(uploaded_file).convert("L")) / 255.0
+
+    st.image(image, caption="Original")
+
+    enhanced = model.predict(image[np.newaxis, ..., np.newaxis])[0, ..., 0]
+
+    st.image(enhanced, caption="AI Enhanced")
